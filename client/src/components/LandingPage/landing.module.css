@@ -1,0 +1,17 @@
+.poke{
+    width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    left: 0px; 
+    top: 0px; 
+    z-index: -1;
+
+ }
+
+ .ball{
+    display: block;
+  margin-top:16%;
+  margin-left: 41%;
+  margin-right: auto;
+  width: 10%;
+ }

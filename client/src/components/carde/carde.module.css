@@ -1,0 +1,11 @@
+.pokenames{
+    text-decoration-line: none;
+    text-decoration-color: red;
+    color: red;
+    background-color: transparent;
+ }
+
+ .poketext{
+    color: whitesmoke;
+    background-color: transparent;
+ }
