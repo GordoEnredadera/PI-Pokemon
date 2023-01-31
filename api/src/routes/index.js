@@ -7,7 +7,7 @@ const { where } = require('sequelize');
 
 const pokeID = async (id) =>{
     try {
-        const pokeById = await addNiggas();
+        const pokeById = await addPokes();
         const pokancer = pokeById.filter((pika)=> {
             if(pika.id==id){
                 return true
@@ -55,7 +55,7 @@ const bringPoke = async () =>{
 
 const findRetard = async (name) => {
     try {
-        const pokeByName = await addNiggas();
+        const pokeByName = await addPokes();
         const pokancer = pokeByName.filter((pika)=> {
             if(pika.name==name){
                 return true
@@ -147,10 +147,10 @@ const alldbdata = async()=>{
 //     })
 // }
 
-const addNiggas = async()=>{
-    const niggas = await bringPoke()
-    const bitches = await alldbdata()
-    const cancer = bitches.map((x)=>{
+const addPokes = async()=>{
+    const pokes = await bringPoke()
+    const dbpokes = await alldbdata()
+    const dbpokes2 = dbpokes.map((x)=>{
         return {
             id: x.id,
             name: x.name,
@@ -167,7 +167,7 @@ const addNiggas = async()=>{
         }
     })
     
-    const res = [...niggas, ...cancer]
+    const res = [...pokes, ...dbpokes2]
     return res
 }
 
@@ -177,14 +177,14 @@ const router = Router();
 router.get("/pokemons", async (req, res)=>{
     try {
         if(req.query.name){
-            const NiggaSearch = await findRetard(req.query.name)
-            if(!NiggaSearch[0]){
+            const PokeSearch = await findRetard(req.query.name)
+            if(!PokeSearch[0]){
                 return res.status(400).send({error:"No esta el bicho"})
             }else{
-                return res.status(200).send(NiggaSearch)
+                return res.status(200).send(PokeSearch)
             }
         }
-        return res.status(200).send(await addNiggas())
+        return res.status(200).send(await addPokes())
         }
      catch (error) {
         return res.status(400).send(error)
